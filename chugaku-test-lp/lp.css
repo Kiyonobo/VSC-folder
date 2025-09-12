@@ -1,0 +1,632 @@
+/* ========== 基本リセット & 変数 ========== */
+:root {
+  --c-text: #111;
+  --c-muted: #666;
+  --c-accent: #0077ff;
+  --c-bg: #fff;
+  --c-card: #fafafa;
+  --c-border: #e5e7eb;
+  --radius: 14px;
+  --shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+  --w-container: min(1100px, 92vw);
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+html {
+  scroll-behavior: smooth;
+}
+body {
+  margin: 0;
+  color: var(--c-text);
+  background: var(--c-bg);
+  font: 500 16px/1.85 system-ui, -apple-system, "Segoe UI", Roboto,
+    "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Yu Gothic", "メイリオ",
+    sans-serif;
+  letter-spacing: 0.02em;
+}
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+a {
+  color: var(--c-accent);
+  text-underline-offset: 0.2em;
+}
+
+/* 共通コンテナ・見出し・段落余白 */
+.container,
+.lpchugaku-container,
+.lp-hero__inner,
+.jhs-lp,
+.lpchugaku-features {
+  width: var(--w-container);
+  margin-inline: auto;
+}
+section {
+  padding: var(--space-12) 0;
+}
+.lpchugaku-h2,
+.lp-h3,
+.lpchugaku-secTitle {
+  line-height: 1.3;
+  margin: 0 0 var(--space-6);
+}
+.lpchugaku-h2 {
+  font-size: clamp(22px, 4vw, 28px);
+}
+.lp-h3,
+.lpchugaku-h3 {
+  font-size: clamp(18px, 3.2vw, 22px);
+}
+p {
+  margin: 0.6em 0 1.1em;
+}
+
+/* ========== 1) ヒーロー ========== */
+.lp-hero {
+  background: linear-gradient(180deg, #f7fbff, #fff);
+}
+.lp-hero__inner {
+  display: grid;
+  gap: var(--space-8);
+  grid-template-columns: 1fr;
+  align-items: center;
+  padding: var(--space-12) 0 var(--space-8);
+}
+.lp-hero__text {
+  display: grid;
+  gap: var(--space-4);
+}
+.lp-hero__title {
+  font-size: clamp(24px, 5.5vw, 40px);
+  margin: 0 0 0.25em;
+}
+.lp-hero__lead {
+  font-size: clamp(16px, 3.5vw, 18px);
+  color: var(--c-muted);
+  margin: 0 0 0.25em;
+}
+.lp-hero__desc {
+  font-size: 15.5px;
+}
+.apply-btn {
+  display: inline-block;
+  margin-top: var(--space-4);
+  padding: 0.9em 1.2em;
+  border-radius: 999px;
+  background: var(--c-accent);
+  color: #fff;
+  text-decoration: none;
+  font-weight: 700;
+  box-shadow: var(--shadow);
+}
+.lp-hero__media img {
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+/* >= 800px で2カラム */
+@media (min-width: 800px) {
+  .lp-hero__inner {
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: var(--space-12);
+  }
+}
+
+/* ========== 2) “3つの特徴”カード ========== */
+.lpchugaku-cardGrid {
+  display: grid;
+  gap: var(--space-6);
+  grid-template-columns: 1fr;
+}
+.lpchugaku-card {
+  background: var(--c-card);
+  border: 1px solid var(--c-border);
+  border-radius: var(--radius);
+  padding: var(--space-6);
+}
+.lpchugaku-cardTitle {
+  margin: 0 0 0.5em;
+}
+.lpchugaku-list {
+  margin: 0.25em 0 0;
+  padding-left: 1.1em;
+}
+.lpchugaku-point {
+  margin: 0.75em 0 0;
+  font-weight: 700;
+}
+
+@media (min-width: 800px) {
+  .lpchugaku-cardGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* フル幅イラスト */
+.lpchugaku-featureIllust {
+  margin: var(--space-10) auto 0;
+  width: var(--w-container);
+}
+.lpchugaku-zoomLink {
+  display: block;
+}
+.lpchugaku-featureIllust img {
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+.lpchugaku-featureIllust figcaption {
+  text-align: center;
+  color: var(--c-muted);
+  font-size: 0.9rem;
+  margin-top: 0.5em;
+}
+
+/* ========== 3) 実施要項グリッド ========== */
+.lpchugaku-grid {
+  display: grid;
+  gap: var(--space-6);
+  grid-template-columns: 1fr;
+  margin-top: var(--space-6);
+}
+@media (min-width: 900px) {
+  .lpchugaku-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* ========== 4) 時間割（擬似テーブル） ========== */
+.lpchugaku-timetable {
+  margin-top: var(--space-4);
+  border: 1px solid var(--c-border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: #fff;
+}
+.tbl-row {
+  display: grid;
+  grid-template-columns: 2fr 0.8fr 1fr;
+}
+.tbl-head {
+  background: #f3f4f6;
+  font-weight: 700;
+}
+.tbl-cell {
+  padding: 0.9em 0.85em;
+  border-top: 1px solid var(--c-border);
+}
+
+@media (max-width: 640px) {
+  .tbl-row {
+    grid-template-columns: 1fr;
+  }
+  .tbl-head {
+    display: none;
+  }
+  .tbl-cell {
+    display: grid;
+    grid-template-columns: 9em 1fr;
+    gap: 0.5em;
+    border-top: 1px solid var(--c-border);
+  }
+  .tbl-cell::before {
+    content: attr(data-label);
+    color: var(--c-muted);
+    font-weight: 700;
+  }
+}
+
+/* ========== 5) 左右2カラム（持ち物/数学特待 + マンガ） ========== */
+.lpchugaku-row {
+  display: grid;
+  gap: var(--space-6);
+  margin-top: var(--space-8);
+}
+.with-illust .lpchugaku-col .lpchugaku-card + .lpchugaku-card {
+  margin-top: var(--space-6);
+}
+@media (min-width: 900px) {
+  .lpchugaku-row {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.lpchugaku-guideIllust img {
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+/* ========== 6) 成績ブロック ========== */
+.lp-results .lp-row {
+  display: grid;
+  gap: var(--space-6);
+  align-items: center;
+  grid-template-columns: 1fr;
+  margin-top: var(--space-8);
+}
+.lp-results .lp-col.text .lp-lead {
+  color: var(--c-muted);
+}
+.lp-results .lp-col.media img {
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+@media (min-width: 900px) {
+  .lp-results .lp-row {
+    grid-template-columns: 1.05fr 0.95fr;
+  }
+}
+
+/* ========== 7) 講師グリッド（4×2→可変） ========== */
+.teacher-grid {
+  display: grid;
+  gap: var(--space-4);
+  grid-template-columns: repeat(2, 1fr);
+  margin-top: var(--space-4);
+}
+.teacher-grid img,
+.teacher-grid .teacher-more {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+.teacher-more {
+  display: grid;
+  place-items: center;
+  text-decoration: none;
+  background: #fff;
+  border: 1px dashed var(--c-border);
+  color: var(--c-muted);
+  font-weight: 700;
+}
+.teacher-note {
+  color: var(--c-muted);
+  font-size: 0.95rem;
+  margin-top: 0.5rem;
+}
+
+@media (min-width: 680px) {
+  .teacher-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media (min-width: 1000px) {
+  .teacher-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* ========== 8) FAQ（details/summary） ========== */
+.lpchugaku-faq details {
+  border: 1px solid var(--c-border);
+  border-radius: var(--radius);
+  background: #fff;
+  padding: 0.2rem 0.8rem;
+  margin: 0.6rem 0;
+}
+.lpchugaku-faq summary {
+  cursor: pointer;
+  list-style: none;
+  padding: 0.8rem 0;
+  font-weight: 700;
+}
+.lpchugaku-faq summary::-webkit-details-marker {
+  display: none;
+}
+.lpchugaku-faq .faq-a {
+  padding: 0 0 0.9rem 0;
+  color: #222;
+}
+.q-label {
+  color: var(--c-accent);
+  font-weight: 700;
+  margin-right: 0.3em;
+}
+
+/* ========== 9) 申込アンカーの見出し隠れ対策 ========== */
+.form-anchor {
+  scroll-margin-top: 90px;
+}
+
+/* ========== 10) ユーティリティ ========== */
+.note {
+  color: var(--c-muted);
+  font-size: 0.95rem;
+  margin: 0.4rem 0 0;
+}
+.subnote {
+  color: var(--c-muted);
+  font-size: 0.9rem;
+}
+.hint {
+  color: var(--c-muted);
+}
+
+/* ========== 11) メディア・パフォーマンスの微調整 ========== */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+/* ==== 講師写真をPCで8列表示 ==== */
+@media (min-width: 1024px) {
+  .teacher-grid {
+    grid-template-columns: repeat(8, 1fr);
+  }
+}
+/* 8列：広い画面での密度を少し上げる */
+@media (min-width: 1200px) {
+  .teacher-grid {
+    grid-template-columns: repeat(8, 1fr);
+    gap: 10px;
+  }
+}
+
+/* 中～大画面の階段的レイアウト（見やすさキープ） */
+@media (min-width: 1024px) and (max-width: 1199px) {
+  .teacher-grid {
+    grid-template-columns: repeat(6, 1fr);
+  }
+}
+@media (min-width: 680px) and (max-width: 1023px) {
+  .teacher-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+@media (min-width: 480px) and (max-width: 679px) {
+  .teacher-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 479px) {
+  .teacher-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* “…ほか多数”カードの文字を少し小さくして収まりUP */
+.teacher-more span {
+  font-size: clamp(13px, 1.4vw, 16px);
+}
+
+/* セクション下の注記を中央寄せ＋控えめに */
+.teacher-note {
+  text-align: center;
+  font-size: 0.95rem;
+  color: #6b7280;
+  margin-top: 0.5rem;
+}
+/* ========== 申込フォーム（CF7） ========== */
+.apply-section {
+  padding: clamp(24px, 5vw, 48px) 0;
+}
+.apply-section .apply-lead {
+  color: #555;
+  margin: 0.2em 0 1em;
+}
+.apply-section .apply-form {
+  background: #fff;
+  border: 1px solid #e9eef3;
+  border-radius: 14px;
+  padding: clamp(14px, 2.2vw, 22px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+}
+
+/* CF7：入力要素の共通 */
+.wpcf7 form .wpcf7-form-control {
+  width: 100%;
+  max-width: 100%;
+  border: 1px solid #dfe6ee;
+  border-radius: 10px;
+  padding: 0.7em 0.9em;
+  line-height: 1.6;
+  box-sizing: border-box;
+}
+.wpcf7 input[type="checkbox"],
+.wpcf7 input[type="radio"] {
+  width: auto;
+}
+
+.wpcf7 label {
+  display: block;
+  font-weight: 600;
+  margin: 0.8em 0 0.3em;
+}
+.wpcf7 .wpcf7-not-valid {
+  border-color: #e53935;
+  background: #fff6f6;
+}
+.wpcf7 .wpcf7-not-valid-tip {
+  color: #e53935;
+  font-size: 0.9rem;
+  margin-top: 0.2em;
+}
+
+.wpcf7 form .wpcf7-response-output {
+  margin: 0.8em 0 0;
+  padding: 0.7em 0.9em;
+  border-radius: 10px;
+}
+.wpcf7 form.init .wpcf7-response-output {
+  display: none;
+}
+.wpcf7 form.sent .wpcf7-response-output {
+  border: 1px solid #b7e3c0;
+  background: #f2fbf4;
+  color: #22543d;
+}
+.wpcf7 form.invalid .wpcf7-response-output {
+  border: 1px solid #ffd1d1;
+  background: #fff5f5;
+  color: #8a1f1f;
+}
+
+/* 送信ボタン（青） */
+.wpcf7 .lpchugaku-btn {
+  display: inline-block;
+  padding: 14px 22px;
+  border-radius: 999px;
+  border: none;
+  background: #0b6cff;
+  color: #fff;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  box-shadow: 0 6px 14px rgba(11, 108, 255, 0.25);
+  transition: transform 0.08s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+  cursor: pointer;
+  margin-top: 0.6em;
+}
+.wpcf7 .lpchugaku-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 18px rgba(11, 108, 255, 0.28);
+}
+.wpcf7 .lpchugaku-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.apply-note {
+  color: #6b7280;
+  margin-top: 0.8em;
+  font-size: 0.95rem;
+}
+
+/* ========== アクセス（あなたのHTMLに合せる軽整形） ========== */
+.campus-access {
+  display: grid;
+  gap: clamp(14px, 2.8vw, 20px);
+  grid-template-columns: 1fr;
+}
+@media (min-width: 880px) {
+  .campus-access {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.campus {
+  background: #fff;
+  border: 1px solid #e9eef3;
+  border-radius: 16px;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.02);
+  padding: clamp(14px, 2.2vw, 18px);
+}
+.campus__title {
+  font-size: clamp(18px, 2.8vw, 22px);
+  margin: 0 0 0.4em;
+}
+.campus__addr {
+  margin: 0.2em 0 0.6em;
+  line-height: 1.75;
+}
+.campus__list {
+  margin: 0 0 0.6em;
+  padding-left: 1.2em;
+  line-height: 1.75;
+}
+.campus__links {
+  margin: 0.4em 0 0.6em;
+}
+
+.btn-outline {
+  display: inline-block;
+  padding: 0.55em 1em;
+  border-radius: 999px;
+  border: 1px solid #c9d7e6;
+  color: #0b6cff;
+  text-decoration: none;
+  font-weight: 700;
+}
+.btn-outline:hover {
+  filter: brightness(1.03);
+}
+
+.map-wrap {
+  border-radius: 12px;
+  overflow: hidden;
+  background: #f6f8fb;
+  border: 1px solid #e9eef3;
+}
+.map-wrap iframe {
+  width: 100%;
+  height: min(55vw, 300px);
+  display: block;
+  border: 0;
+}
+
+/* 固定ヘッダー対策（アンカー飛び） */
+#apply,
+#lpchugaku-access {
+  scroll-margin-top: 72px;
+}
+/* 実施要項と時間割の横幅を他ブロックと揃える */
+#lpchugaku-guidelines {
+  max-width: 1100px; /* デスクトップ時の最大幅 */
+  margin-inline: auto; /* 中央寄せ */
+  padding-inline: clamp(12px, 4vw, 24px); /* 左右に余白を確保 */
+}
+
+#lpchugaku-guidelines .lpchugaku-grid,
+#lpchugaku-guidelines .lpchugaku-timetable {
+  max-width: 100%; /* 内部は親に従わせる */
+  margin-inline: 0;
+}
+body.postid-2066 .apply-hint {
+  display: block;
+  margin-top: 8px;
+  font-weight: 700;
+  color: #0b6cff;
+  text-align: left;
+}
+@media (max-width: 900px) {
+  body.postid-2066 .apply-hint {
+    text-align: center;
+  }
+}
+body.postid-2066 .apply-hint .chev {
+  display: inline-block;
+  width: 0;
+  height: 0;
+  margin-left: 0.4em;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 9px solid #0b6cff;
+  animation: chevBounce 1.4s infinite;
+}
+body.postid-2066 .apply-hint .chev + .chev {
+  animation-delay: 0.2s;
+}
+@keyframes chevBounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(4px);
+  }
+}
+/* CTAボタン（全国統一中学生テストに申し込む） */
+body.postid-2066 .apply-btn {
+  font-size: 1.25rem; /* ← デフォルトより大きめ（20px相当） */
+  font-weight: 800; /* ← 太さをさらに強調 */
+  padding: 16px 32px; /* ← ボタン自体も一回り大きく */
+  letter-spacing: 0.02em; /* ← 字間をほんの少し広げる（読みやすさUP） */
+}
