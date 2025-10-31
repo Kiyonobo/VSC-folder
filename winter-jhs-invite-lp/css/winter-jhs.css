@@ -1,0 +1,901 @@
+/* ============================================================
+   🧭 Winter JHS Invite LP - Complete Style Sheet
+   Version: 2025-10 Stable
+   ============================================================ */
+
+:root {
+  --color-main: #00a183;
+  --color-accent: #e60012;
+  --color-accent-warm: #e66b00;
+  --color-text: #222222;
+  --color-subtext: #555555;
+  --color-bg: #fafafa;
+  --color-border: #e6e6e6;
+  --max-width: 1080px;
+  --section-padding: clamp(48px, 7vw, 96px);
+  --card-radius: 12px;
+  --shadow-soft: 0 6px 18px rgba(0, 0, 0, 0.08);
+}
+
+/* ------------------------------------------------------------
+   🩶 ベース設定
+------------------------------------------------------------ */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
+  color: var(--color-text);
+  background: #ffffff;
+  line-height: 1.7;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  border: 0;
+}
+
+a {
+  color: var(--color-main);
+  text-decoration: none;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+a:hover {
+  opacity: 0.85;
+}
+
+/* ------------------------------------------------------------
+   🌈 セクション背景設定（配色リズム最終版）
+------------------------------------------------------------ */
+/* Hero（冒頭） */
+#lp-hero {
+  padding: 0;
+  background: #f6f9f8;
+}
+
+#lp-hero .container {
+  padding: 0;
+}
+
+#lp-hero img {
+  width: 100%;
+  height: auto;
+}
+
+/* 東進中学NETの３つの柱 */
+#features {
+  background: #ffffff;
+}
+
+/* 実施概要 */
+#outline {
+  background: #f6f9f8;
+}
+
+/* 受講までの流れ */
+#flow {
+  background: #ffffff;
+}
+
+/* 申込CTA（冬期特別招待に申し込む） */
+#cta-bottom {
+  background: #f0f7f6;
+}
+
+/* フォームセクション */
+#form {
+  background: #ffffff;
+  border-top: 1px solid var(--color-border);
+}
+
+/* ------------------------------------------------------------
+   🧩 汎用レイアウト
+------------------------------------------------------------ */
+section {
+  width: 100%;
+  margin: 0 auto;
+  padding: var(--section-padding) 0;
+}
+
+.vk_section {
+  display: block;
+}
+
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+/* ------------------------------------------------------------
+   ✳️ タイトル・見出し
+------------------------------------------------------------ */
+h1,
+h2,
+h3 {
+  font-weight: 700;
+  line-height: 1.4;
+  margin: 0 0 0.75em 0;
+}
+
+.section-title {
+  display: block;
+  text-align: center;
+  font-size: clamp(1.8rem, 2.4vw, 2.3rem);
+  color: var(--color-text);
+  margin: 0 auto 32px;
+  padding-bottom: 8px;
+  position: relative;
+}
+
+.section-title::after {
+  content: "";
+  display: block;
+  width: 48px;
+  height: 3px;
+  background: var(--color-main);
+  border-radius: 2px;
+  margin: 12px auto 0;
+}
+
+.section-lead {
+  font-size: 1.12rem;
+  margin-bottom: 1.6em;
+}
+
+.section-text {
+  font-size: 1.05rem;
+  color: var(--color-subtext);
+  margin-bottom: 1.4em;
+}
+
+/* ------------------------------------------------------------
+   🟢 ボタン類
+------------------------------------------------------------ */
+.section-cta {
+  text-align: center;
+  margin-top: 2.4em;
+}
+
+.btn-main {
+  display: inline-block;
+  padding: 14px 32px;
+  background: var(--color-main);
+  color: #ffffff;
+  font-weight: 700;
+  border-radius: 8px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.btn-main:hover {
+  background: #00876f;
+  transform: translateY(-1px);
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.14);
+}
+
+.btn-accent {
+  background: var(--color-accent);
+}
+
+.btn-accent:hover {
+  background: #c0000f;
+}
+
+/* ------------------------------------------------------------
+   💡 Feature（３つの柱）
+------------------------------------------------------------ */
+.features-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+  margin-top: 40px;
+}
+
+.feature-card {
+  background: #ffffff;
+  border: 1px solid var(--color-border);
+  border-radius: var(--card-radius);
+  padding: 24px;
+  box-shadow: var(--shadow-soft);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.14);
+}
+
+.feature-subtitle {
+  font-size: 1.2rem;
+  color: var(--color-main);
+  margin-bottom: 0.75em;
+}
+
+.feature-text {
+  font-size: 1.05rem;
+  color: var(--color-subtext);
+}
+
+.feature-card--teachers {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2em;
+}
+
+.feature-teacher-strip {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 1.1em;
+}
+
+.feature-teacher-strip img {
+  width: 160px;
+  height: 110px;
+  object-fit: cover;
+  border-radius: var(--card-radius);
+  box-shadow: var(--shadow-soft);
+  transition: transform 0.25s ease;
+}
+
+.feature-teacher-strip img:hover {
+  transform: scale(1.04);
+}
+
+.feature-teacher-strip__more {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 160px;
+  height: 110px;
+  padding: 0 20px;
+  background: #ffffff;
+  border: 1px solid var(--color-border);
+  border-radius: var(--card-radius);
+  font-weight: 600;
+  color: var(--color-subtext);
+  white-space: nowrap;
+  line-height: 1.4;
+  box-shadow: var(--shadow-soft);
+}
+
+/* ------------------------------------------------------------
+   📚 各柱（2・3）用の分割レイアウト
+------------------------------------------------------------ */
+.feature-card--split {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+}
+
+.feature-card--split .feature-card__content {
+  flex: 1 1 60%;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2em;
+}
+
+.feature-card--split .feature-card__visual {
+  flex: 1 1 40%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.feature-card--split .feature-card__visual img {
+  width: 100%;
+  max-width: 320px;
+  border-radius: var(--card-radius);
+  box-shadow: var(--shadow-soft);
+}
+
+/* ✅ 高速基礎マスター画像（比率維持） */
+.feature-card__visual--hs-master img {
+  height: 220px;
+  width: auto;
+  max-width: 100%;
+  object-fit: contain;
+  border-radius: var(--card-radius);
+  margin: 0 auto;
+  display: block;
+}
+
+/* ✅ 担任コーチ画像 */
+.feature-card__visual--coach img {
+  max-width: 260px;
+  border-radius: var(--card-radius);
+}
+
+/* ============================================================
+   🧾 実施概要セクション（#outline）デザイン調整
+   ============================================================ */
+
+/* グリッド全体 */
+#outline .outline-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+  margin-top: 40px;
+}
+
+/* 各カード */
+#outline .outline-card {
+  background: #ffffff;
+  border: 1px solid var(--color-border);
+  border-radius: var(--card-radius);
+  padding: 28px 24px;
+  box-shadow: var(--shadow-soft);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+#outline .outline-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+/* 見出し（カード内h3） */
+#outline .outline-card h3 {
+  font-size: 1.25rem;
+  color: var(--color-main);
+  border-left: 4px solid var(--color-main);
+  padding-left: 10px;
+  margin-bottom: 0.8em;
+}
+
+/* 本文テキスト */
+#outline .outline-card p {
+  font-size: 1.05rem;
+  color: var(--color-subtext);
+  line-height: 1.8;
+  margin-bottom: 1em;
+}
+
+/* リスト（締切日など） */
+#outline .outline-card ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+#outline .outline-card ul li {
+  position: relative;
+  padding-left: 1.2em;
+  margin-bottom: 0.4em;
+}
+
+#outline .outline-card ul li::before {
+  content: "・";
+  position: absolute;
+  left: 0;
+  color: var(--color-accent-warm);
+  font-weight: bold;
+}
+
+/* 注釈テキスト */
+#outline .outline-card .note {
+  font-size: 0.92rem;
+  color: #777;
+  margin-top: 0.8em;
+  line-height: 1.6;
+}
+
+/* モバイル対応 */
+@media (max-width: 768px) {
+  #outline .outline-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  #outline .outline-card {
+    padding: 20px 18px;
+  }
+
+  #outline .outline-card h3 {
+    font-size: 1.15rem;
+  }
+
+  #outline .outline-card p {
+    font-size: 1rem;
+  }
+}
+
+/* ------------------------------------------------------------
+   🧾 フォーム
+------------------------------------------------------------ */
+.form-wrapper {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 28px;
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--card-radius);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+  text-align: left;
+}
+
+.form-field {
+  margin-bottom: 20px;
+}
+
+.form-field label {
+  display: block;
+  font-weight: 600;
+  color: var(--color-text);
+  margin-bottom: 8px;
+}
+
+.form-field input,
+.form-field select {
+  width: 100%;
+  padding: 12px;
+  font-size: 1rem;
+  border: 1px solid #cccccc;
+  border-radius: 6px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.form-field input:focus,
+.form-field select:focus {
+  border-color: var(--color-main);
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(0, 161, 131, 0.15);
+}
+
+.form-actions {
+  text-align: center;
+  margin-top: 32px;
+}
+
+/* ------------------------------------------------------------
+   🦶 フッター
+------------------------------------------------------------ */
+footer {
+  padding: 40px 0;
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--color-subtext);
+}
+
+/* ------------------------------------------------------------
+   📱 レスポンシブ調整
+------------------------------------------------------------ */
+@media (max-width: 900px) {
+  .features-grid {
+    gap: 20px;
+  }
+
+  .feature-card--with-media {
+    flex-direction: column;
+  }
+
+  .feature-card__media {
+    flex: 1 1 auto;
+  }
+}
+
+@media (max-width: 768px) {
+  :root {
+    --section-padding: 40px;
+  }
+
+  .feature-card--split {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .feature-card--split .feature-card__visual {
+    order: -1;
+    width: 100%;
+  }
+
+  .feature-card--split .feature-card__visual img {
+    max-width: 360px;
+  }
+
+  .feature-teacher-strip img {
+    width: 150px;
+    height: 100px;
+  }
+
+  .feature-teacher-strip__more {
+    min-width: 150px;
+    height: 100px;
+    padding: 0 16px;
+  }
+
+  .btn-main {
+    width: 100%;
+    padding: 14px;
+  }
+}
+
+@media (max-width: 520px) {
+  .form-wrapper {
+    padding: 24px 20px;
+  }
+
+  .section-title {
+    font-size: 1.6rem;
+  }
+}
+
+/* ============================================================
+   📱 スマホ専用：中間CTAボタン（#flow 内）
+   ------------------------------------------------------------
+   PC：非表示 ／ スマホ：表示
+   ============================================================ */
+
+/* デフォルト（PCなど大画面）は非表示 */
+#flow .section-cta {
+  display: none;
+}
+
+/* スマホ時のみ表示 */
+@media (max-width: 768px) {
+  #flow .section-cta {
+    display: block;
+    margin-top: 2em;
+    text-align: center;
+  }
+
+  #flow .section-cta .btn-main {
+    width: 80%;
+    max-width: 320px;
+  }
+}
+
+/* デフォルトでは非表示 */
+#why-now .section-cta {
+  display: none;
+}
+
+/* スマホ時のみ表示 */
+@media (max-width: 768px) {
+  #why-now .section-cta {
+    display: block;
+    margin-top: 2em;
+    text-align: center;
+  }
+
+  #why-now .section-cta .btn-main {
+    width: 80%;
+    max-width: 320px;
+  }
+}
+
+/* =========================================
+   高速基礎マスター レイアウト微調整版
+   ========================================= */
+.feature-card--split {
+  display: grid;
+  grid-template-columns: 1.3fr 0.9fr; /* ← 左をやや広く */
+  gap: 40px; /* ← 余裕を持たせて呼吸感アップ */
+  align-items: start;
+}
+
+.feature-card__visual--hs-master {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  align-items: center;
+}
+
+@media (max-width: 768px) {
+  .feature-card--split {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}
+
+/* 強制反映テスト：高速基礎マスター 2カラムレイアウト */
+.feature-card--split {
+  display: grid !important;
+  grid-template-columns: 1.3fr 0.9fr !important;
+  gap: 40px !important;
+  align-items: start !important;
+}
+@media (max-width: 768px) {
+  .feature-card--split {
+    grid-template-columns: 1fr !important;
+  }
+}
+/* ===============================
+   📱 レスポンシブ：2カラム → 1カラム切替
+   =============================== */
+@media (max-width: 768px) {
+  /* feature-card 全般：縦並びへ */
+  .feature-card--split {
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* テキストと画像を中央寄せ */
+  .feature-card__content,
+  .feature-card__visual {
+    text-align: center;
+    align-items: center;
+  }
+
+  /* 画像の幅をやや広めに（見やすく） */
+  .feature-card__visual img {
+    max-width: 90%;
+    height: auto;
+  }
+}
+/* =========================================================
+   Flow Section Layout
+========================================================= */
+#flow .flow-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  margin-top: 32px;
+}
+
+.flow-card {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  padding: 24px 32px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.flow-card__content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.flow-text {
+  flex: 1;
+}
+
+.flow-card__number {
+  font-weight: 700;
+  font-size: 1.4rem;
+  color: #006eb0;
+  margin-bottom: 4px;
+}
+
+.flow-icon img {
+  width: 120px;
+  height: auto;
+  display: block;
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 768px) {
+  .flow-card__content {
+    flex-direction: column;
+    text-align: center;
+  }
+  .flow-icon img {
+    margin-top: 16px;
+    width: 100px;
+  }
+}
+.flow-card__content {
+  display: flex;
+  align-items: center; /* ← ここが重要 */
+  justify-content: space-between;
+  gap: 24px;
+}
+.flow-icon img {
+  width: 96px;
+  height: auto;
+}
+.flow-card {
+  padding: 28px 32px;
+  border-radius: 12px;
+  background: #fff;
+  border: 1px solid #e5e5e5;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+.flow-card__content {
+  flex-direction: column;
+  text-align: center;
+}
+#flow .flow-icon img {
+  width: 88px;
+  height: auto;
+  margin-top: 16px;
+  opacity: 0.95;
+  transition: transform 0.2s ease;
+}
+#flow .flow-icon img:hover {
+  transform: scale(1.05);
+}
+
+/* =========================================================
+   受講までの流れ（中学NET版）正式デザイン flow-style-soft-v1
+   縦配置・センター寄せ・温度感重視
+========================================================= */
+#flow .flow-card {
+  text-align: center;
+  background: #fff;
+  border-radius: 12px;
+  padding: 32px 28px;
+  margin-bottom: 32px;
+  border: 1px solid #e8e8e8;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+}
+
+#flow .flow-card__number {
+  font-size: 1.1rem;
+  color: #0097a7;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+#flow h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+#flow p {
+  font-size: 0.95rem;
+  line-height: 1.8;
+  color: #333;
+}
+
+#flow .flow-icon img {
+  width: 88px;
+  height: auto;
+  margin-top: 16px;
+  opacity: 0.95;
+  transition: transform 0.2s ease, opacity 0.3s ease;
+}
+#flow .flow-icon img:hover {
+  transform: scale(1.05);
+  opacity: 1;
+}
+/* ==========================================================
+   受講までの流れ（#flow）中央下配置タイプ
+   ========================================================== */
+#flow .flow-card {
+  position: relative;
+  text-align: center;
+  padding: 40px 24px 80px; /* 下にアイコン用の余白を確保 */
+}
+
+#flow .flow-card__number {
+  font-weight: bold;
+  font-size: 1.4rem;
+  color: var(--toshin-green, #008060);
+  margin-bottom: 8px;
+}
+
+#flow .flow-icon {
+  position: absolute;
+  bottom: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+#flow .flow-icon img {
+  width: 80px;
+  opacity: 0.65;
+  transition: opacity 0.3s ease;
+}
+
+#flow .flow-card:hover .flow-icon img {
+  opacity: 0.85;
+}
+
+/* Heroセクションの上余白を消す（Lightning干渉解除）*/
+.page .entry-content > .vk_section:first-child,
+#lp-hero.vk_section {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+
+/* コンテナを上に引き上げる（念のため）*/
+#lp-hero .container {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+/* Lightningテーマが挿入する余白段落を削除 */
+.page .entry-content > p:first-child {
+  display: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* Heroセクションの上余白を完全除去 */
+.page .entry-content > .vk_section:first-child,
+#lp-hero.vk_section {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+/* Lightningテーマのメインセクション上余白を消す */
+.mainSection {
+  margin-top: 0 !important;
+}
+
+/* Heroセクションをページ上部に密着させる */
+#lp-hero.vk_section,
+.page .entry-content > .vk_section:first-child {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+/* ================================
+   🔧 Lightning 固有余白の最終解除
+   ================================ */
+.mainSection,
+.mainSection > .container,
+.mainSection.col.mainSection-col-one {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+
+.entry-content,
+.entry-content > .vk_section:first-child {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+
+body.page .site-content {
+  padding-top: 0 !important;
+}
+
+/* HeroセクションをLightningの上余白から切り離す最終版 */
+body.page :is(.site-content, main#main, .mainSection, .entry-body):has(#lp-hero) {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+
+/* ページ先頭で自動挿入される空パラグラフ対策 */
+body.page .entry-body {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+
+body.page .entry-body > p:first-child {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+  padding: 0 !important;
+}
+
+body.page .entry-body > p:first-child br {
+  display: none !important;
+}
+/* =========================================================
+   #outline カード間の余白を限界まで詰める（密着仕様）
+========================================================= */
+#outline {
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+#outline .outline-grid {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 2px !important; /* ← 視覚的に「ほぼなし」レベル */
+}
+
+#outline .outline-card {
+  margin: 0 !important;
+  padding-top: 24px !important;
+  padding-bottom: 24px !important;
+  border-radius: 10px;
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.04);
+}
+
+/* 各カードの下に余白を作らない */
+#outline .outline-card + .outline-card {
+  margin-top: 2px !important; /* ← ほんのわずかな呼吸感だけ残す */
+}
