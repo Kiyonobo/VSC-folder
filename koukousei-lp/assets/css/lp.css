@@ -1,0 +1,384 @@
+/* =========================================
+   Base Tokens（環境ノート準拠）
+   - 色は許可色のみ：#00703c / #e60012 / #0b6cff / #0a6
+   - 横幅は --container で全体統一
+========================================= */
+:root{
+  /* Layout */
+  --container: 960px;
+  --radius: 12px;
+  --shadow: 0 6px 18px rgba(0,0,0,.08);
+
+  /* Colors */
+  --text-main: #1a1a1a;
+  --text-sub: #555555;
+  --muted: #e9eef3;
+  --card-bg: #ffffff;
+
+  /* Brand palette (allowed only) */
+  --toshin-green: #0a6;  /* アクセント */
+  --cta-red:     #e60012;   /* 申込ボタン */
+  --key-blue:    #0b6cff;   /* 補助キー（リンク/副ボタン） */
+  --hero-green:  #0a6;      /* Hero専用緑 */
+
+  /* Spacing */
+  --space-1: 8px;
+  --space-2: 12px;
+  --space-3: 16px;
+  --space-4: 24px;
+  --space-5: 32px;
+  --space-6: 48px;
+}
+
+/* =========================================
+   Reset / Base
+========================================= */
+*{ box-sizing: border-box; }
+html, body{ margin:0; padding:0; }
+body{
+  font-family: "Noto Sans JP", system-ui, -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
+  line-height: 1.75;
+  color: var(--text-main);
+  background: #fff;
+}
+img{ max-width: 100%; height: auto; display: block; }
+
+/* コンテナ */
+.inner{
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* セクション */
+.sec{ padding: clamp(40px, 6vw, 80px) 0; }
+.sec-title{
+  font-size: clamp(20px, 3vw, 28px);
+  margin: 0 0 24px;
+  text-align: center;
+  line-height: 1.3;
+}
+
+/* =========================================
+   Buttons
+========================================= */
+.btn{
+  display:inline-block;
+  padding: 14px 24px;
+  border-radius: 999px;
+  font-weight: 700;
+  text-decoration: none;
+  border: 2px solid transparent;
+  transition: transform .06s ease, background-color .2s ease, color .2s ease, border-color .2s ease;
+  white-space: nowrap;
+}
+.btn:focus-visible{ outline: 3px solid #9cc4ff; outline-offset: 3px; }
+.btn-primary{ background: var(--cta-red); color:#fff; }
+.btn-primary:hover{ transform: translateY(-1px); }
+.btn-secondary{ background: var(--key-blue); color:#fff; }
+.btn-secondary:hover{ transform: translateY(-1px); }
+
+/* =========================================
+   Hero
+========================================= */
+.hero{
+  position: relative;
+  overflow: hidden;
+  color: #000;
+  text-align: center;
+  padding: clamp(64px, 12vw, 160px) 20px;
+}
+.hero-bg{
+  position:absolute; inset:0;
+  background: url("../img/202509Koukouse_test_backgroundpic.png") center/cover no-repeat;
+  z-index:-1;
+}
+.hero-bg::after{
+  content:""; position:absolute; inset:0;
+  background: rgba(255,255,255,.7);
+}
+.hero-logo{
+  display:block; max-width: min(90vw, 680px); margin:0 auto var(--space-4);
+}
+.hero-title{
+  font-size: clamp(22px, 3.4vw, 36px);
+  font-weight: 700; line-height:1.3; letter-spacing:.03em;
+  margin:0 0 14px; color:#111;
+}
+.hero-lead{
+  max-width: 36em; margin: 16px auto 28px;
+  color:#333; letter-spacing:.02em; line-height:1.8;
+  font-size: clamp(14px, 2vw, 18px);
+}
+.hero-lead p{ margin:.5em 0; }
+.hero-hint{ font-size:13px; color:#808080; margin-top:10px; letter-spacing:.02em; }
+
+@media (max-width: 480px){
+  .hero{ padding:48px 16px 32px; }
+  .hero-title{ font-size:22px; letter-spacing:.03em; }
+  .hero-lead{ font-size:16px; line-height:1.75; }
+  .btn.btn-primary{
+    display:block; max-width:320px; margin:20px auto 0; padding:12px 24px;
+  }
+}
+
+/* =========================================
+   Points（3カード）
+========================================= */
+.points{ margin: clamp(32px, 6vw, 64px) auto; text-align:center; }
+.points-grid{
+  display:grid; gap: clamp(16px, 4vw, 32px);
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  margin-top:24px;
+}
+.point-card{
+  background: var(--card-bg);
+  border: 1px solid var(--muted);
+  border-radius: 16px;
+  padding: clamp(16px, 3vw, 24px);
+  box-shadow: var(--shadow);
+}
+.point-icon{ width:88px; height:auto; margin-bottom:16px; }
+.point-card h3{
+  font-size: clamp(16px, 2vw, 20px);
+  margin:0 0 8px; color: var(--text-main);
+}
+.point-card p{ font-size:.95rem; line-height:1.8; color: var(--text-sub); }
+
+/* =========================================
+   実施要項
+========================================= */
+#guidelines{ margin: clamp(32px, 6vw, 64px) 0; }
+#guidelines .sec-title{ margin-bottom: 16px; }
+
+.kv-list{
+  list-style:none; margin:16px 0 20px; padding:0;
+  display:grid; gap: clamp(12px, 3vw, 18px);
+  grid-template-columns: repeat(2, minmax(280px, 1fr));
+}
+.kv-list li{
+  display:grid; grid-template-columns: auto 1fr; align-items:start; gap:10px;
+  padding: clamp(14px, 3vw, 20px);
+  background: var(--card-bg); border:1px solid var(--muted); border-radius:14px;
+  box-shadow: 0 2px 6px rgba(0,0,0,.04);
+  line-height:1.7; color: var(--text-main);
+}
+.kv-list li>span{
+  display:inline-flex; align-items:center; justify-content:center;
+  height:28px; padding:0 10px; border-radius:999px; font-size:.9rem; font-weight:700; letter-spacing:.02em; color:#fff; white-space:nowrap;
+}
+.kv-list li.is-green>span{ background: var(--toshin-green); }
+.kv-list li.is-red>span{ background: var(--cta-red); }
+
+.timetable{ margin-top: clamp(16px,4vw,24px); }
+.timetable .sub{ text-align:left; margin:0 0 10px; font-size: clamp(16px,2vw,18px); }
+.tt{
+  width:100%; border-collapse:separate; border-spacing:0; overflow:hidden;
+  border:1px solid var(--muted); border-radius:12px; background:#fff;
+}
+.tt thead th{
+  background: var(--toshin-green); color:#fff; font-weight:700; text-align:left;
+  padding:10px 12px; letter-spacing:.02em;
+}
+.tt tbody td{ padding:10px 12px; border-top:1px dashed #eef3f7; }
+.tt tbody tr:nth-child(even) td{ background:#fafcff; }
+
+.notes{ margin-top: clamp(16px,4vw,24px); display:grid; gap:10px; }
+.notes p{
+  margin:0; padding:12px 14px; background:#f7fafc; color: var(--text-sub);
+  border-left:4px solid var(--toshin-green); border-radius:8px; line-height:1.8;
+}
+.notes strong{ color: var(--text-main); }
+
+@media (max-width: 768px){ .kv-list{ grid-template-columns:1fr; } }
+
+/* =========================================
+   部門選び（カードUI）
+========================================= */
+#category .sec-title{ margin-bottom:32px; }
+.sec-title .accent-red{ color: var(--cta-red); }
+
+.category-grid{
+  display:flex; flex-wrap:wrap; gap:20px; justify-content:center;
+}
+.category-card{
+  flex: 1 1 400px; padding:40px; border-radius:12px;
+  background:var(--card-bg); border:1px solid var(--muted); box-shadow: var(--shadow);
+  display:flex; flex-direction:column;
+}
+.category-card .card-title{ font-size:1.25rem; font-weight:700; line-height:1.5; margin-bottom:20px; }
+.category-card .card-desc{ flex-grow:1; font-size:1rem; color: var(--text-sub); margin-bottom:30px; }
+.category-card .btn{ margin-top:auto; }
+.category-card:first-child .card-title{ color: var(--toshin-green); }
+.category-card.is-highlight .card-title{ color: var(--cta-red); }
+.category-card:first-child .btn{ background: var(--key-blue); }   /* 高1・高2 */
+.category-card.is-highlight .btn{ background: var(--cta-red); }  /* 統一 */
+
+/* =========================================
+   成績返却・面談（共通レイアウト）
+========================================= */
+#report .sec-title{ margin-bottom:32px; }
+.content-row{
+  display:flex; flex-direction:column; align-items:center;
+  gap: clamp(20px,4vw,40px); margin-bottom:60px;
+}
+.content-row .row-image{ flex:1 1 auto; max-width:100%; }
+.content-row .row-image img{
+  width:100%; height:auto; border-radius:8px; box-shadow:0 4px 12px rgba(0,0,0,.08);
+}
+.content-row .row-text{ flex:1 1 auto; width:100%; text-align:left; }
+.content-row .sub-title{
+  color: var(--toshin-green); font-size: clamp(18px, 2.5vw, 22px);
+  font-weight:700; border-left:4px solid var(--toshin-green);
+  padding-left:12px; margin:0 0 12px;
+}
+.content-row p{ line-height:1.8; color: var(--text-sub); }
+
+@media (min-width:768px){
+  .content-row{ flex-direction:row; justify-content:space-between; align-items:flex-start; }
+  .content-row .row-image, .content-row .row-text{ flex:1 1 48%; max-width:48%; }
+  .content-row.is-reverse{ flex-direction: row-reverse; }
+  .content-row.is-reverse .sub-title{ color: var(--cta-red); border-left-color: var(--cta-red); }
+}
+
+/* =========================================
+   実力講師による解説授業
+========================================= */
+#teachers .sec-title{ margin-bottom:32px; }
+#teachers .section-lead{ text-align:center; margin-bottom:40px; font-size:1rem; color: var(--text-sub); }
+.teacher-grid{
+  display:grid; grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  gap:16px; justify-items:center;
+}
+.teacher-card{ text-align:center; }
+.teacher-photo{
+  width:100px; height:100px; border-radius:8px; object-fit:cover; object-position:50% 20%;
+  border:2px solid var(--toshin-green); box-shadow:0 2px 8px rgba(0,0,0,.08);
+}
+
+/* =========================================
+   FAQ（幅ズレ根絶＋使いやすい開閉UI）
+========================================= */
+#faq .sec-title{ margin-bottom:32px; }
+#faq .faq-list{
+  width:100%;
+  max-width: none;      /* 子要素での幅上限を廃止し、.inner に追従 */
+  margin:0 auto;
+}
+.faq-item{
+  border:1px solid var(--muted); border-radius:8px;
+  margin-bottom:12px; overflow:hidden; box-shadow: var(--shadow);
+  background:#fff;
+}
+.faq-item summary{
+  padding:18px 20px; font-weight:700; cursor:pointer; list-style:none;
+  position:relative; font-size:1rem;
+}
+.faq-item summary::after{
+  content:"▶"; position:absolute; right:20px; top:50%; transform: translateY(-50%);
+  transition: transform .2s ease;
+}
+.faq-item[open] summary::after{ content:"▼"; }
+
+.faq-item .faq-answer{
+  padding: 10px 20px 20px; margin:0; border-top:1px solid var(--muted);
+  line-height:1.8; color: var(--text-sub); font-size:.95rem;
+}
+.faq-item .faq-answer h4{ font-size:1rem; font-weight:700; margin-top:10px; }
+
+/* =========================================
+   Form
+========================================= */
+#form .sec-title{ margin-bottom:32px; }
+#form .subtle{ text-align:center; margin-top:20px; color: var(--text-sub); font-size:.9rem; }
+
+/* =========================================
+   Access
+========================================= */
+#access .sec-title{ margin-bottom:32px; }
+.access-grid{
+  display:grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap:30px; justify-content:center;
+}
+.access-card{
+  padding:30px; border-radius:12px; background:#fff; box-shadow: var(--shadow);
+}
+.access-card h3{ font-size:1.2rem; font-weight:700; margin-bottom:15px; }
+.access-card p{ font-size:.9rem; color: var(--text-sub); margin-bottom:15px; }
+.map-container{ height:300px; background:#f7fafc; border-radius:8px; overflow:hidden; }
+.map-container iframe{ width:100%; height:100%; border:0; }
+/* 弱点を克服する解説授業 → 緑に統一 */
+.content-row.is-reverse .sub-title {
+  color: var(--toshin-green) !important;
+  border-left-color: var(--toshin-green) !important;
+}
+
+/* 高1・高2部門（左）ボタン：青→緑 ＆文字大きく */
+.category-card:first-child .btn {
+  background: var(--toshin-green) !important;
+  font-size: 1.25rem;     /* 通常より約2まわり大きく */
+  padding: 16px 28px;     /* ボタン内余白も調整 */
+}
+
+/* 全学年統一部門（右）ボタン：赤のまま文字だけ大きく */
+.category-card.is-highlight .btn {
+  font-size: 1.25rem;
+  padding: 16px 28px;
+}
+/* ===== Form 基本 ===== */
+#form .subtle { text-align: center; margin-bottom: 16px; color: var(--text-sub); }
+.lp-form { margin-top: 16px; }
+
+.lp-form .form-grid{
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(2, minmax(220px, 1fr));
+}
+@media (max-width: 768px){
+  .lp-form .form-grid{ grid-template-columns: 1fr; }
+}
+
+.form-field{ display: flex; flex-direction: column; gap: 6px; }
+.form-field--full{ grid-column: 1 / -1; }
+
+.form-label{
+  font-weight: 700; font-size: .95rem; line-height: 1.4;
+  display: inline-flex; align-items: center; gap: 8px;
+}
+.form-label .req{
+  display:inline-block; padding: 2px 8px; border-radius: 999px;
+  background: var(--toshin-green); color: #fff; font-size: .78rem; font-weight: 700;
+}
+
+.wpcf7-text, .wpcf7-select, .wpcf7-textarea{
+  width: 100%; padding: 12px 14px; border-radius: 10px;
+  border: 1px solid var(--muted); background: #fff;
+  font-size: 16px; line-height: 1.5; transition: border-color .15s ease, box-shadow .15s ease;
+}
+.wpcf7-textarea{ resize: vertical; }
+.wpcf7-text:focus, .wpcf7-select:focus, .wpcf7-textarea:focus{
+  outline: none; border-color: var(--toshin-green);
+  box-shadow: 0 0 0 3px rgba(0,170,102,.15); /* #0a6のフォーカスリング */
+}
+
+/* 同意チェック */
+.agree{ display:flex; align-items:center; gap:10px; margin: 12px 0 4px; }
+.agree input{ width:18px; height:18px; accent-color: var(--toshin-green); }
+
+/* 送信ボタン（CTAは赤を維持） */
+.form-actions{ margin-top: 8px; text-align: center; }
+.form-actions .btn.btn-primary{
+  background: var(--cta-red);
+  font-size: 1.08rem;
+  padding: 14px 28px;
+}
+.form-actions .form-note{
+  margin-top: 10px; font-size: .9rem; color: var(--text-sub);
+}
+
+/* エラーメッセージ（CF7標準クラスに合わせ） */
+.wpcf7-form .wpcf7-not-valid{ border-color: #e6b0b4; }
+.wpcf7-form .wpcf7-not-valid-tip{ color: var(--cta-red); font-size: .85rem; margin-top: 4px; }
+.wpcf7-form .wpcf7-response-output{
+  margin-top: 12px; border: 1px solid var(--muted); padding: 10px 12px; border-radius: 10px;
+}
